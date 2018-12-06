@@ -14,70 +14,45 @@ import PostBody from '../../components/PostBody';
 
 class BoardPage extends Component {
   static propTypes = {
-    applied: PropTypes.array.isRequired,
-    interviewing: PropTypes.array.isRequired,
-    hired: PropTypes.array.isRequired,
-    getApplied: PropTypes.func.isRequired,
-    removeApplied: PropTypes.func.isRequired,
-    addApplied: PropTypes.func.isRequired,
-    addInterviewing: PropTypes.func.isRequired,
-    removeInterviewing: PropTypes.func.isRequired,
-    addHired: PropTypes.func.isRequired,
-    removeHired: PropTypes.func.isRequired
+    posts: PropTypes.array.isRequired,
+    getPosts: PropTypes.func.isRequired,
+    getComments: PropTypes.func.isRequired
   };
 
   componentDidMount() {
     this.props.getPosts();
   }
-
-  appliedToInterviewing = (options) => {
-    const { user } = options;
-    this.props.addInterviewing({ user });
-    this.props.removeApplied({ user });
-  };
-
-  interviewingToApplied = (options) => {
-    const { user } = options;
-    this.props.removeInterviewing({ user });
-    this.props.addApplied({ user });
-  };
-
-  interviewingToHired = (options) => {
-    const { user } = options;
-    this.props.removeInterviewing({ user });
-    this.props.addHired({ user });
-  };
-
-  HiredToInterviewing = (options) => {
-    const { user } = options;
-    this.props.removeHired({ user });
-    this.props.addInterviewing({ user });
+  
+  getComments = (options) => {
+    const { post } = options;
+    this.props.getComments({ post });
   };
 
   render = () => {
-    const { applied, interviewing, hired } = this.props;
     const { posts } = this.props;
     return (
       <Content>
-        <Column>
+        <Column key={'posts'} >
           <H3>Posts</H3>
           {posts.length ? posts.map(e =>
-            <Post key={`key-${e.id}`}>
+            <Post key={`key-${e.id}`} onClick={event => this.getComments({ post: e }) } >
               <Title>{`${e.title}`}</Title>
               <PostBody>{`${e.body}`}</PostBody>
             </Post>
           ) : ''}
         </Column>
-        <Column>
-          <H3>Comment 1</H3>
-          {interviewing.length ? interviewing.map(e =>
-            <User key={e.login.uuid}>
-              <ButtonLeft onClick={event => this.interviewingToApplied({ user: e })}>{'<'}</ButtonLeft>
-              <Name>{`${e.name.first} ${e.name.last}`}</Name>
-              <ButtonRight onClick={event => this.interviewingToHired({ user: e })}>{'>'}</ButtonRight>
-            </User>
-          ) : ''}
-        </Column>
+        {posts.map(e =>
+          e.comments && 
+          <Column key={`post-${e.id}`}>
+            <Title>{`Post ${e.id}`}</Title>
+            {e.comments.length ? e.comments.map(c =>
+              <Post key={`key-${c.id}`}>
+                <Title>{`${c.title}`}</Title>
+                <PostBody>{`${c.body}`}</PostBody>
+              </Post>
+            ) : ''}
+          </Column>
+        )}
       </Content>
     );
   };
