@@ -8,6 +8,8 @@ import ButtonLeft from '../../components/ButtonLeft';
 import Column from '../../components/Column';
 import H3 from '../../components/H3';
 import Content from '../../components/Content';
+import Post from '../../components/Post';
+import Title from '../../components/Title';
 
 class BoardPage extends Component {
   static propTypes = {
@@ -24,7 +26,7 @@ class BoardPage extends Component {
   };
 
   componentDidMount() {
-    this.props.getApplied();
+    this.props.getPosts();
   }
 
   appliedToInterviewing = (options) => {
