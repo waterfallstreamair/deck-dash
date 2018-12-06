@@ -2,10 +2,9 @@ import styled from 'styled-components';
 
 const H3 = styled.h1`
   font-size: 1em;
-  margin-bottom: 1.5em;
-  margin-top: 0.5em;
   color: #cccccc;
-  border-right: solid 1px #bbbbbb;
+  position: absolute;
+  top: 0px;
 `;
 
 export default H3;
