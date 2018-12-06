@@ -17,6 +17,13 @@ class BoardPage extends Component {
     getComments: PropTypes.func.isRequired,
     removeComments: PropTypes.func.isRequired
   };
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: null
+    };
+  }
 
   componentDidMount() {
     this.props.getPosts();
@@ -33,14 +40,23 @@ class BoardPage extends Component {
     const { post } = options;
     this.props.removeComments({ post });
   };
+  
+  handleSearch = (e) => {
+    this.setState({
+      search: e.target.value
+    })
+  }
 
   render = () => {
     const { posts } = this.props;
+    const search = this.state.search ? this.state.search.toLowerCase() : null;
+    const filtered = search ? posts.filter(e => e.title.toLowerCase().includes(search)) : null;
     return (
       <Content>
         <Column key={'posts'} >
           <H3>Posts</H3>
-          {posts.length ? posts.map(e =>
+          <Search placeholder="Search..." onKeyUp={e => this.handleSearch(e) } />
+          {posts.length ? (filtered || posts).map(e =>
             <Item key={`post-${e.id}`} onClick={event => this.getComments({ post: e }) } >
               <Title>{`${e.title}`}</Title>
               <Text>{`${e.body}`}</Text>
@@ -49,7 +65,7 @@ class BoardPage extends Component {
         </Column>
         {posts.map(e =>
           e.comments && 
-          <Area>
+          <Area key={`area-${e.id}`} >
             <H3>{`Comments ${e.id}`}</H3>
             <Remove onClick={event => this.removeComments({ post: e }) }>X</Remove>
             <Column key={`comments-${e.id}`}>

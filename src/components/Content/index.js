@@ -10,6 +10,8 @@ const Content = styled.div`
   bottom: 0px;
   right: 0px;
   overflow-x: scroll;
+  overflow-y: hidden;
+  height: 100%;
 `;
 
 export default Content;

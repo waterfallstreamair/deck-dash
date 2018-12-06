@@ -7,6 +7,8 @@ const Search = styled.input`
   top: 2em;
   width: 18em;
   text-align: right;
+  left: 1em;
+  border-radius: 0.5em;
 `;
 
 export default Search;
