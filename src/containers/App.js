@@ -5,7 +5,7 @@ import Main from '../components/Main';
 
 const App = () => (
   <Main>
-    <H1>HR Users 2</H1>
+    <H1>Maehren Digital deck dashboard</H1>
     <BoardPage />
   </Main>
 );

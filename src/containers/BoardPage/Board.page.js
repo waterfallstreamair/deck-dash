@@ -56,33 +56,21 @@ class BoardPage extends Component {
     return (
       <Content>
         <Column>
-          <H3>Applied</H3>
+          <H3>Posts</H3>
           {applied.length ? applied.map(e =>
             <User key={e.login.uuid}>
-              <Image src={e.picture.large} alt={e.picture.large} />
               <Name>{`${e.name.first} ${e.name.last}`}</Name>
               <ButtonRight onClick={event => this.appliedToInterviewing({ user: e })}>{'>'}</ButtonRight>
             </User>
           ) : ''}
         </Column>
         <Column>
-          <H3>Interviewing</H3>
+          <H3>Comment 1</H3>
           {interviewing.length ? interviewing.map(e =>
             <User key={e.login.uuid}>
-              <Image src={e.picture.large} alt={e.picture.large} />
               <ButtonLeft onClick={event => this.interviewingToApplied({ user: e })}>{'<'}</ButtonLeft>
               <Name>{`${e.name.first} ${e.name.last}`}</Name>
               <ButtonRight onClick={event => this.interviewingToHired({ user: e })}>{'>'}</ButtonRight>
-            </User>
-          ) : ''}
-        </Column>
-        <Column>
-          <H3>Hired</H3>
-          {hired.length ? hired.map(e =>
-            <User key={e.login.uuid}>
-              <Image src={e.picture.large} alt={e.picture.large} />
-              <ButtonLeft onClick={event => this.HiredToInterviewing({ user: e })}>{'<'}</ButtonLeft>
-              <Name>{`${e.name.first} ${e.name.last}`}</Name>
             </User>
           ) : ''}
         </Column>
