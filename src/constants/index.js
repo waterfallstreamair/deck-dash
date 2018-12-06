@@ -9,3 +9,6 @@ export const TYPE_INTERVIEWING_USERS_REMOVE = 'TYPE_INTERVIEWING_USERS_REMOVE';
 
 export const TYPE_HIRED_USERS_ADD = 'TYPE_HIRED_USERS_ADD';
 export const TYPE_HIRED_USERS_REMOVE = 'TYPE_HIRED_USERS_REMOVE';
+
+export const CONST_URL_POSTS = 'https://jsonplaceholder.typicode.com/posts';
+export const CONST_URL_COMMENTS = 'https://jsonplaceholder.typicode.com/posts/{post_id}/comments';

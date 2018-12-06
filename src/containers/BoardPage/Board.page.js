@@ -53,15 +53,15 @@ class BoardPage extends Component {
 
   render = () => {
     const { applied, interviewing, hired } = this.props;
+    const { posts } = this.props;
     return (
       <Content>
         <Column>
           <H3>Posts</H3>
-          {applied.length ? applied.map(e =>
-            <User key={e.login.uuid}>
-              <Name>{`${e.name.first} ${e.name.last}`}</Name>
-              <ButtonRight onClick={event => this.appliedToInterviewing({ user: e })}>{'>'}</ButtonRight>
-            </User>
+          {posts.length ? posts.map(e =>
+            <Post key={`key-${e.id}`}>
+              <Title>{`${e.title}`}</Title>
+            </Post>
           ) : ''}
         </Column>
         <Column>
