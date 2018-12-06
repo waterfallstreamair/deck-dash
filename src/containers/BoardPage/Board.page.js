@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import User from '../../components/User';
-import Image from '../../components/Image';
-import Name from '../../components/Name';
-import ButtonRight from '../../components/ButtonRight';
-import ButtonLeft from '../../components/ButtonLeft';
 import Column from '../../components/Column';
 import H3 from '../../components/H3';
 import Content from '../../components/Content';
@@ -25,7 +20,9 @@ class BoardPage extends Component {
   
   getComments = (options) => {
     const { post } = options;
-    this.props.getComments({ post });
+    if (!post.comments) {
+      this.props.getComments({ post });
+    }
   };
 
   render = () => {
@@ -35,7 +32,7 @@ class BoardPage extends Component {
         <Column key={'posts'} >
           <H3>Posts</H3>
           {posts.length ? posts.map(e =>
-            <Post key={`key-${e.id}`} onClick={event => this.getComments({ post: e }) } >
+            <Post key={`post-${e.id}`} onClick={event => this.getComments({ post: e }) } >
               <Title>{`${e.title}`}</Title>
               <PostBody>{`${e.body}`}</PostBody>
             </Post>
@@ -43,11 +40,11 @@ class BoardPage extends Component {
         </Column>
         {posts.map(e =>
           e.comments && 
-          <Column key={`post-${e.id}`}>
-            <Title>{`Post ${e.id}`}</Title>
+          <Column key={`comments-${e.id}`}>
+            <H3>{`Post ${e.id}`}</H3>
             {e.comments.length ? e.comments.map(c =>
-              <Post key={`key-${c.id}`}>
-                <Title>{`${c.title}`}</Title>
+              <Post key={`comment-${c.id}`}>
+                <Title>{`${c.name}`}</Title>
                 <PostBody>{`${c.body}`}</PostBody>
               </Post>
             ) : ''}
