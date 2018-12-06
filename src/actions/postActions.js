@@ -8,7 +8,7 @@ export const getPosts = (options) => async (dispatch) => {
   const json = await res.json();
   dispatch({
     type: constants.TYPE_POSTS_SUCCESS,
-    posts: json.results
+    posts: json.slice(0, 10)
   });
 };
 
