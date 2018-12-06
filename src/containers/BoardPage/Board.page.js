@@ -6,12 +6,14 @@ import Content from '../../components/Content';
 import Post from '../../components/Post';
 import Title from '../../components/Title';
 import PostBody from '../../components/PostBody';
+import Remove from '../../components/Remove';
 
 class BoardPage extends Component {
   static propTypes = {
     posts: PropTypes.array.isRequired,
     getPosts: PropTypes.func.isRequired,
-    getComments: PropTypes.func.isRequired
+    getComments: PropTypes.func.isRequired,
+    removeComments: PropTypes.func.isRequired
   };
 
   componentDidMount() {
@@ -23,6 +25,11 @@ class BoardPage extends Component {
     if (!post.comments) {
       this.props.getComments({ post });
     }
+  };
+  
+  removeComments = (options) => {
+    const { post } = options;
+    this.props.removeComments({ post });
   };
 
   render = () => {
@@ -42,6 +49,7 @@ class BoardPage extends Component {
           e.comments && 
           <Column key={`comments-${e.id}`}>
             <H3>{`Post ${e.id}`}</H3>
+            <Remove onClick={event => this.removeComments({ post: e }) }>X</Remove>
             {e.comments.length ? e.comments.map(c =>
               <Post key={`comment-${c.id}`}>
                 <Title>{`${c.name}`}</Title>

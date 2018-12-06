@@ -27,3 +27,10 @@ export const getComments = (options) => async (dispatch) => {
   });
 };
 
+export const removeComments = (options) => async (dispatch) => {
+  const { post } = options;
+  dispatch({
+    type: constants.TYPE_COMMENTS_REMOVE,
+    post
+  });
+};

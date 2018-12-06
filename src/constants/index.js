@@ -3,3 +3,4 @@ export const CONST_URL_COMMENTS = 'https://jsonplaceholder.typicode.com/posts/{p
 
 export const TYPE_POSTS_SUCCESS = 'TYPE_POSTS_SUCCESS';
 export const TYPE_COMMENTS_SUCCESS = 'TYPE_COMMENTS_SUCCESS';
+export const TYPE_COMMENTS_REMOVE = 'TYPE_COMMENTS_REMOVE';

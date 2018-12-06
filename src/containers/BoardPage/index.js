@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getPosts: options => dispatch(postActions.getPosts(options)),
-  getComments: options => dispatch(postActions.getComments(options))
+  getComments: options => dispatch(postActions.getComments(options)),
+  removeComments: options => dispatch(postActions.removeComments(options))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BoardPage);

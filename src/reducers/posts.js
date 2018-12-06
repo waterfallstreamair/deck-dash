@@ -5,14 +5,16 @@ const posts = (state = initialState, action) => {
   switch (action.type) {
     
     case constants.TYPE_POSTS_SUCCESS:
-      console.log({ action })
       return [...state, ...action.posts];
       
     case constants.TYPE_COMMENTS_SUCCESS:
-      console.log({ action })
-      const { post, comments } = action;
       return state.map(e => 
-        e.id === post.id ? { ...e, comments } : e
+        e.id === action.post.id ? { ...e, comments: action.comments } : e
+      );
+      
+    case constants.TYPE_COMMENTS_REMOVE:
+      return state.map(e => 
+        e.id === action.post.id ? { ...e, comments: null } : e
       );
       
     default:
