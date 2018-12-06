@@ -3,11 +3,11 @@ import styled from 'styled-components';
 const Column = styled.div`
   width: 20em;
   min-width: 20em;
-  text-align: center;
   display: inline-block;
   vertical-align: top;
   height: 100%;
   overflow-y: scroll;
+  margin-top: 5em;
 `;
 
 export default Column;

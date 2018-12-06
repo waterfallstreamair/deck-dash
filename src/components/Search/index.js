@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const H3 = styled.div`
+const Search = styled.input`
   font-size: 1em;
   color: #cccccc;
   position: absolute;
-  top: 0px;
+  top: 2em;
   width: 18em;
-  text-align: center;
+  text-align: right;
 `;
 
-export default H3;
+export default Search;

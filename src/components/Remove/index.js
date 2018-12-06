@@ -4,9 +4,9 @@ const Remove = styled.div`
   font-size: 1em;
   color: #cccccc;
   position: absolute;
-  right: 0em;
   top: 0em;
-  left: 10em;
+  width: 18em;
+  text-align: right;
 `;
 
 export default Remove;

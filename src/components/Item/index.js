@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Post = styled.div`
+const Item = styled.div`
   border: solid 1px #eeeeee;
   border-radius: 0.2em;
   width: 10em;
@@ -15,4 +15,4 @@ const Post = styled.div`
   }
 `;
 
-export default Post;
+export default Item;

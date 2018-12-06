@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import Column from '../../components/Column';
 import H3 from '../../components/H3';
 import Content from '../../components/Content';
-import Post from '../../components/Post';
+import Item from '../../components/Item';
 import Title from '../../components/Title';
-import PostBody from '../../components/PostBody';
+import Text from '../../components/Text';
 import Remove from '../../components/Remove';
+import Area from '../../components/Area';
+import Search from '../../components/Search';
 
 class BoardPage extends Component {
   static propTypes = {
@@ -39,24 +41,26 @@ class BoardPage extends Component {
         <Column key={'posts'} >
           <H3>Posts</H3>
           {posts.length ? posts.map(e =>
-            <Post key={`post-${e.id}`} onClick={event => this.getComments({ post: e }) } >
+            <Item key={`post-${e.id}`} onClick={event => this.getComments({ post: e }) } >
               <Title>{`${e.title}`}</Title>
-              <PostBody>{`${e.body}`}</PostBody>
-            </Post>
+              <Text>{`${e.body}`}</Text>
+            </Item>
           ) : ''}
         </Column>
         {posts.map(e =>
           e.comments && 
-          <Column key={`comments-${e.id}`}>
-            <H3>{`Post ${e.id}`}</H3>
+          <Area>
+            <H3>{`Comments ${e.id}`}</H3>
             <Remove onClick={event => this.removeComments({ post: e }) }>X</Remove>
-            {e.comments.length ? e.comments.map(c =>
-              <Post key={`comment-${c.id}`}>
-                <Title>{`${c.name}`}</Title>
-                <PostBody>{`${c.body}`}</PostBody>
-              </Post>
-            ) : ''}
-          </Column>
+            <Column key={`comments-${e.id}`}>
+              {e.comments.length ? e.comments.map(c =>
+                <Item key={`comment-${c.id}`}>
+                  <Title>{`${c.name}`}</Title>
+                  <Text>{`${c.body}`}</Text>
+                </Item>
+              ) : ''}
+            </Column>
+          </Area>
         )}
       </Content>
     );
