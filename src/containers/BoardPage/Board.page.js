@@ -10,6 +10,7 @@ import H3 from '../../components/H3';
 import Content from '../../components/Content';
 import Post from '../../components/Post';
 import Title from '../../components/Title';
+import PostBody from '../../components/PostBody';
 
 class BoardPage extends Component {
   static propTypes = {
@@ -63,6 +64,7 @@ class BoardPage extends Component {
           {posts.length ? posts.map(e =>
             <Post key={`key-${e.id}`}>
               <Title>{`${e.title}`}</Title>
+              <PostBody>{`${e.body}`}</PostBody>
             </Post>
           ) : ''}
         </Column>
