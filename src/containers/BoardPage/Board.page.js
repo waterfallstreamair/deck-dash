@@ -7,7 +7,6 @@ import Item from '../../components/Item';
 import Title from '../../components/Title';
 import Text from '../../components/Text';
 import Remove from '../../components/Remove';
-import Area from '../../components/Area';
 import Search from '../../components/Search';
 import Head from '../../components/Head';
 import List from '../../components/List';

@@ -5,9 +5,9 @@ const H1 = styled.h1`
   color: #cccc00;
   border-bottom: solid 1px #eeeeee;
   position: absolute;
-  left: 10px;
-  top: 0px;
-  right: 10px;
+  left: 1em;
+  top: 0em;
+  right: 1em;
 `;
 
 export default H1;
