@@ -11,7 +11,6 @@ const Content = styled.div`
   right: 0px;
   overflow-x: scroll;
   overflow-y: hidden;
-  height: 100%;
 `;
 
 export default Content;

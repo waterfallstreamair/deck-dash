@@ -6,6 +6,7 @@ const Column = styled.div`
   display: inline-block;
   vertical-align: top;
   height: 100%;
+  overflow-y: scroll;
 `;
 
 export default Column;

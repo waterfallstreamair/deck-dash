@@ -9,6 +9,8 @@ import Text from '../../components/Text';
 import Remove from '../../components/Remove';
 import Area from '../../components/Area';
 import Search from '../../components/Search';
+import Head from '../../components/Head';
+import List from '../../components/List';
 
 class BoardPage extends Component {
   static propTypes = {
@@ -54,29 +56,35 @@ class BoardPage extends Component {
     return (
       <Content>
         <Column key={'posts'} >
-          <H3>Posts</H3>
-          <Search placeholder="Search..." onKeyUp={e => this.handleSearch(e) } />
-          {posts.length ? (filtered || posts).map(e =>
-            <Item key={`post-${e.id}`} onClick={event => this.getComments({ post: e }) } >
-              <Title>{`${e.title}`}</Title>
-              <Text>{`${e.body}`}</Text>
-            </Item>
-          ) : ''}
+          <Head>
+            <H3>Posts</H3>
+            <Search placeholder="Search..." onKeyUp={e => this.handleSearch(e) } />
+          </Head>
+          <List>
+            {posts.length ? (filtered || posts).map(e =>
+              <Item key={`post-${e.id}`} onClick={event => this.getComments({ post: e }) } >
+                <Title>{`${e.title}`}</Title>
+                <Text>{`${e.body}`}</Text>
+              </Item>
+            ) : ''}
+          </List>
         </Column>
         {posts.map(e =>
           e.comments && 
-          <Area key={`area-${e.id}`} >
-            <H3>{`Comments ${e.id}`}</H3>
-            <Remove onClick={event => this.removeComments({ post: e }) }>X</Remove>
             <Column key={`comments-${e.id}`}>
+              <Head>
+                <H3>{`Comments ${e.id}`}</H3>
+                <Remove onClick={event => this.removeComments({ post: e }) }>X</Remove>
+              </Head>
+              <List>
               {e.comments.length ? e.comments.map(c =>
                 <Item key={`comment-${c.id}`}>
                   <Title>{`${c.name}`}</Title>
                   <Text>{`${c.body}`}</Text>
                 </Item>
               ) : ''}
+              </List>
             </Column>
-          </Area>
         )}
       </Content>
     );
