@@ -73,7 +73,7 @@ class BoardPage extends Component {
           e.comments && 
             <Column key={`comments-${e.id}`}>
               <Head>
-                <H3>{`Comments ${e.id}`}</H3>
+                <H3>{`Post ${e.id} Comments`}</H3>
                 <Remove onClick={event => this.removeComments({ post: e }) }>X</Remove>
               </Head>
               <List>

@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
-const Remove = styled.div`
+const Remove = styled.a`
   font-size: 1em;
   color: #cccccc;
-  position: absolute;
-  top: 0em;
-  width: 18em;
+  width: 5%;
+  right: 0.1em;
+  width: 1.5em;
+  height: 1.5em;
   text-align: right;
+  color: #aaaaff;
+  font-weight: bold;
+  cursor: pointer;
 `;
 
 export default Remove;

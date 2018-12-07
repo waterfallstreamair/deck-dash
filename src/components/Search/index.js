@@ -3,10 +3,9 @@ import styled from 'styled-components';
 const Search = styled.input`
   font-size: 1em;
   color: #cccccc;
-  position: absolute;
-  top: 2em;
-  width: 16em;
-  left: 1em;
+  margin-top: 1em;
+  width: 85%;
+  margin-left: 0.5em;
   border-radius: 0.5em;
 `;
 

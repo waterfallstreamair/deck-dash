@@ -6,6 +6,7 @@ const Head = styled.div`
   display: inline-block;
   vertical-align: top;
   height: 15%;
+  margin-left: 10%;
 `;
 
 export default Head;
