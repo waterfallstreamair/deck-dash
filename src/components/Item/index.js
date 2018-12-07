@@ -7,9 +7,8 @@ const Item = styled.div`
   height: 10em;
   margin-top: 1em;
   margin-bottom: 1em;
-  margin-left: auto;
-  margin-right: auto;
   padding: 2em;
+  margin-left: 10%;
   &:hover {
     background-color: #eeeeee
   }

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const H3 = styled.div`
-  font-size: 1em;
+  font-size: 1.4em;
   color: #cccccc;
   width: 95%;
-  text-align: center;
+  text-align: left;
   display: inline-block;
   font-weight: bold;
 `;

@@ -5,7 +5,7 @@ const Search = styled.input`
   color: #cccccc;
   margin-top: 1em;
   width: 85%;
-  margin-left: 0.5em;
+  margin-left: 0em;
   border-radius: 0.5em;
 `;
 
