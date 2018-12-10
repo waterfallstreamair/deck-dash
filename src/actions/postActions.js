@@ -1,4 +1,3 @@
-import 'whatwg-fetch';
 import * as constants from '../constants/index';
 
 export const getPosts = (options) => async (dispatch) => {
